@@ -1,13 +1,13 @@
-FROM n8nio/n8n
+FROM n8nio/n8n:latest
 
 # Install ffmpeg
-RUN apt-get update && apt-get install -y ffmpeg
+RUN apk add --no-cache ffmpeg
 
 # Set working directory
-WORKDIR /home/node
+WORKDIR /home/node/.n8n
 
-# Expose the n8n port
-EXPOSE 5678
+# Copy custom files if needed
+# COPY files .
 
-# Start n8n
-CMD ["n8n", "start"]
+# Command to start n8n
+CMD ["n8n"]
